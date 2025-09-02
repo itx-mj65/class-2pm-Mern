@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
@@ -9,14 +9,20 @@ function App() {
 
   useEffect(() => {
     console.log("data is fetched")
-  })
+  }, [count])
+
+
+  const button = useRef(0)
+  button.current = count
+
+
   return (
     <>
       {
-        count && <h1>hello world</h1>
+        count && <h1>hello world  {button.current} </h1>
       }
 
-      <button onClick={() => setCount(!count)}  >Click me
+      <button  ref={button} onClick={() => setCount(!count)}  >Click me
       </button>
     </>
   )
