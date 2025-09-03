@@ -1,31 +1,43 @@
-import { useEffect, useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useRef } from "react";
 
 function App() {
-  console.log("reload")
-  const [count, setCount] = useState(false)
+  const boxRef = useRef(null);
 
 
-  useEffect(() => {
-    console.log("data is fetched")
-  }, [count])
 
+  const changeStyle = () => {
+    boxRef.current.style.backgroundColor = "lightgreen";
+    boxRef.current.style.color = "white";
+    boxRef.current.style.padding = "20px";
+    boxRef.current.style.borderRadius = "10px";
+    boxRef.current.style.transition = "0.3s";
 
-  const button = useRef(0)
-  button.current = count
-
+    console.log(boxRef);
+  };
 
   return (
-    <>
-      {
-        count && <h1>hello world  {button.current} </h1>
-      }
+    <div style={{ padding: "20px" }}>
+      <h2>useRef Style Example</h2>
 
-      <button  ref={button} onClick={() => setCount(!count)}  >Click me
-      </button>
-    </>
-  )
+      <div
+        ref={boxRef}
+        style={{
+          width: "200px",
+          height: "100px",
+          backgroundColor: "lightcoral",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Change My Style
+      </div>
+
+      <br />
+
+      <button onClick={changeStyle}>Change Style</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
