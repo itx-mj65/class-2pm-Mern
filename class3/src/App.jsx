@@ -1,4 +1,7 @@
 import { useRef } from "react";
+import MyContext from "./api/context";
+import Hello from "./assets/Hello";
+import Form from "./assets/Form";
 
 function App() {
   const boxRef = useRef(null);
@@ -16,27 +19,33 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>useRef Style Example</h2>
 
-      <div
-        ref={boxRef}
-        style={{
-          width: "200px",
-          height: "100px",
-          backgroundColor: "lightcoral",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        Change My Style
+    
+      <div style={{ padding: "20px" }}>
+        <Form />
+
+        <Hello />
+        <h2>useRef Style Example</h2>
+
+        <div
+          ref={boxRef}
+          style={{
+            width: "200px",
+            height: "100px",
+            backgroundColor: "lightcoral",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          Change My Style
+        </div>
+
+        <br />
+
+        <button onClick={changeStyle}>Change Style</button>
       </div>
-
-      <br />
-
-      <button onClick={changeStyle}>Change Style</button>
-    </div>
+   
   );
 }
 
