@@ -2,6 +2,10 @@ import { useRef } from "react";
 import MyContext from "./api/context";
 import Hello from "./assets/Hello";
 import Form from "./assets/Form";
+import { Route, Routes } from "react-router";
+import Home from "./assets/pages/Home";
+import Contact from "./assets/pages/Contact";
+import About from "./assets/pages/About";
 
 function App() {
   const boxRef = useRef(null);
@@ -20,9 +24,9 @@ function App() {
 
   return (
 
-    
-      <div style={{ padding: "20px" }}>
-        <Form />
+
+    <div style={{ padding: "20px" }}>
+      {/* <Form />
 
         <Hello />
         <h2>useRef Style Example</h2>
@@ -43,9 +47,20 @@ function App() {
 
         <br />
 
-        <button onClick={changeStyle}>Change Style</button>
-      </div>
-   
+        <button onClick={changeStyle}>Change Style</button> */}
+
+      <Routes >
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+
+
+      </Routes>
+
+
+
+    </div>
+
   );
 }
 

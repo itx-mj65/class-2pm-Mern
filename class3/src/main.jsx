@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import MyContext from './api/context.js'
+import { BrowserRouter } from 'react-router'
 
 const obj = {
   name: "hello",
@@ -10,9 +11,13 @@ const obj = {
 }
 
 createRoot(document.getElementById('root')).render(
-  <MyContext.Provider value={obj}>
-    <StrictMode>
-      <App />
-    </StrictMode>
-  </MyContext.Provider>,
+
+  <BrowserRouter >
+    <MyContext.Provider value={obj}>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </MyContext.Provider>
+
+  </BrowserRouter>,
 )
